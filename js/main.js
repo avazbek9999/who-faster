@@ -21,11 +21,23 @@ function calculeteTime(distance, speed) {
 
 elForm.addEventListener('submit', function (evt) {
     evt.preventDefault();
-    var dictanceInput = Number(elDistenceInput.value.trim())
+    var dictanceInput = Number(elDistenceInput.value.trim());
 
-    elResaltBox.textContent = calculeteTime(dictanceInput, speedMan);
-    elResaltBox2.textContent = calculeteTime(dictanceInput, speedBike);
-    elResaltBox3.textContent = calculeteTime(dictanceInput, speedCar);
-    elResaltBox4.textContent = calculeteTime(dictanceInput, speedPlane);
+    //early return 
+
+    if (dictanceInput <= 0 || isNaN(dictanceInput)) {    
+        elDistenceInput.classList.add('alert-input');
+        return;
+    } else {
+        elDistenceInput.classList.remove('alert-input');
+    }
+
+    elResaltBox.textContent = calculeteTime(dictanceInput , speedMan);
+    elResaltBox2.textContent = calculeteTime(dictanceInput , speedBike);
+    elResaltBox3.textContent = calculeteTime(dictanceInput , speedCar);
+    elResaltBox4.textContent = calculeteTime(dictanceInput , speedPlane);
    
 })
+
+
+
